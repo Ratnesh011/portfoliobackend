@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const projectRoutes = require('./routes/projectRoutes');
-const messageRoutes = require('./routes/messageRoutes');
+const projectRoutes = require('./routes/ProjectRoutes');
+const messageRoutes = require('./routes/MessageRoutes');
 const dotenv = require('dotenv');
 const path = require('path');
 const morgan = require('morgan'); // Added for request logging
