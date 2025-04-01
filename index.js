@@ -19,7 +19,16 @@ connectDB();
 
 
 // Middleware
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: 'https://tranquil-bonbon-7f7310.netlify.app', // Allow only your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
+  credentials: true // Allow cookies if needed
+}));
+
+
 app.use(express.json());
 app.use(morgan('dev')); // Log requests to console
 
