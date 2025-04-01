@@ -1,7 +1,6 @@
 const express = require('express');
 const Project = require('../models/Project');
 const router = express.Router();
-const cors=require('cors');
 
 
 
@@ -10,7 +9,6 @@ const cors=require('cors');
 // @desc    Get all projects
 // @access  Public
 
-router.use(cors());
  
 router.get('/', async (req, res) => {
   try {
