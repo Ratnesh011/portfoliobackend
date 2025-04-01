@@ -1,10 +1,17 @@
 const express = require('express');
 const Project = require('../models/Project');
 const router = express.Router();
+const cors=require('cors');
+const app=express();
+
+
 
 // @route   GET api/projects
 // @desc    Get all projects
 // @access  Public
+
+app.use(cors());
+ 
 router.get('/', async (req, res) => {
   try {
     const projects = await Project.find().sort({ createdAt: -1 });

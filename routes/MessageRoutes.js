@@ -3,7 +3,11 @@ const Message = require('../models/Message');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
+const cors=require('cors');
+const app=express();
 
+
+ app.use(cors());
 // Email transporter setup
 const transporter = nodemailer.createTransport({
   service: 'gmail',
