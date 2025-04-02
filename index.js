@@ -5,40 +5,31 @@ const projectRoutes = require('./routes/ProjectRoutes');
 const messageRoutes = require('./routes/MessageRoutes');
 const dotenv = require('dotenv');
 const path = require('path');
-const morgan = require('morgan'); // Added for request logging
+const morgan = require('morgan'); 
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 
-// Connect to Database
+
 connectDB();
 
 
 
 
-// Middleware
-// app.use(cors());
 
-app.use(cors({
-  origin: 'https://tranquil-bonbon-7f7310.netlify.app', // Allow only your frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow necessary headers
-  credentials: true // Allow cookies if needed
-}));
+app.use(cors());
 
 
 app.use(express.json());
-app.use(morgan('dev')); // Log requests to console
+app.use(morgan('dev')); 
 
-// Routes
+
 app.use('/api/projects', projectRoutes);
 app.use('/api/messages', messageRoutes);
 
 
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ 
